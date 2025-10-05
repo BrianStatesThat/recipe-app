@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export function Header() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const isActive = (path) =>
+    location.pathname === path ? 'text-primary-500' : 'text-gray-700 hover:text-primary-500';
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
@@ -13,44 +18,37 @@ export function Header() {
             <span className="text-xl font-bold text-gray-900">Recipe Finder</span>
           </Link>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link 
-              to="/" 
-              className={`font-medium transition-colors ${
-                location.pathname === '/' ? 'text-primary-500' : 'text-gray-700 hover:text-primary-500'
-              }`}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/recipes" 
-              className={`font-medium transition-colors ${
-                location.pathname === '/recipes' ? 'text-primary-500' : 'text-gray-700 hover:text-primary-500'
-              }`}
-            >
-              Recipes
-            </Link>
-            <Link 
-              to="/about" 
-              className={`font-medium transition-colors ${
-                location.pathname === '/about' ? 'text-primary-500' : 'text-gray-700 hover:text-primary-500'
-              }`}
-            >
-              About
-            </Link>
+            <Link to="/" className={`font-medium transition-colors ${isActive('/')}`}>Home</Link>
+            <Link to="/recipes" className={`font-medium transition-colors ${isActive('/recipes')}`}>Recipes</Link>
+            <Link to="/about" className={`font-medium transition-colors ${isActive('/about')}`}>About</Link>
           </nav>
 
-          {/* User Profile */}
-          <div className="flex items-center gap-4">
-            <Link to="/search" className="p-2 text-gray-400 hover:text-gray-600 transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </Link>
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-          </div>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden p-2 text-gray-600 hover:text-primary-500 focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {menuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {menuOpen && (
+          <nav className="md:hidden flex flex-col gap-4 py-4">
+            <Link to="/" className={`font-medium px-4 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/recipes" className={`font-medium px-4 ${isActive('/recipes')}`} onClick={() => setMenuOpen(false)}>Recipes</Link>
+            <Link to="/about" className={`font-medium px-4 ${isActive('/about')}`} onClick={() => setMenuOpen(false)}>About</Link>
+          </nav>
+        )}
       </div>
     </header>
   );

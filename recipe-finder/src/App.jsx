@@ -6,6 +6,7 @@ import { SearchResults } from './pages/SearchResults';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { NotFound } from './pages/NotFound';
 import { Recipes } from './pages/Recipes'; // 👈 Added import
+import { About } from './pages/About';
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
           <>
             <Header />
             <SearchResults />
+            <Footer />
+          </>
+        } />
+
+        <Route path="/about" element={
+          <>
+            <Header />
+            <About />
             <Footer />
           </>
         } />
