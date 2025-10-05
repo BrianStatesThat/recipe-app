@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export function SearchBar({ onSearch, isLoading, large = false }) {
-  const [query, setQuery] = useState('');
+export function SearchBar({ onSearch, isLoading, large = false, initialValue = '' }) {
+  const [query, setQuery] = useState(initialValue);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    setQuery(initialValue);
+  }, [initialValue]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch(query.trim());
+      if (onSearch) {
+        onSearch(query.trim());
+      } else {
+        navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+      }
     }
   };
+
+  const searchSuggestions = ['Pasta', 'Chicken', 'Chocolate', 'Salad', 'Cake', 'Beef', 'Fish'];
 
   if (large) {
     return (
@@ -48,6 +61,22 @@ export function SearchBar({ onSearch, isLoading, large = false }) {
             </button>
           </div>
         </form>
+
+        <div className="mt-6">
+          <p className="text-sm text-gray-600 mb-3 text-center">Try searching for:</p>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {searchSuggestions.map((suggestion) => (
+              <button
+                key={suggestion}
+                type="button"
+                onClick={() => navigate(`/search?q=${encodeURIComponent(suggestion)}`)}
+                className="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm hover:bg-primary-100 transition-colors border border-primary-200"
+              >
+                {suggestion}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
