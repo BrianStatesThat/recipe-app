@@ -22,7 +22,10 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
 
   if (featured) {
     return (
-      <div className="card group cursor-pointer" onClick={handleClick}>
+      <div
+        className="card group cursor-pointer flex flex-col h-full"
+        onClick={handleClick}
+      >
         <div className="relative overflow-hidden">
           <img
             src={image}
@@ -42,7 +45,8 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
           </div>
         </div>
 
-        <div className="p-6">
+        {/* Card Body */}
+        <div className="p-6 flex flex-col flex-1">
           <h3 className="font-semibold text-gray-900 text-lg mb-2 line-clamp-2">{title}</h3>
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">{getShortDescription()}</p>
           <button
@@ -50,7 +54,7 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
               e.stopPropagation();
               handleClick();
             }}
-            className="btn-outline w-full text-center"
+            className="btn-outline w-full text-center mt-auto"
           >
             View Recipe
           </button>
@@ -59,16 +63,26 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
     );
   }
 
+  // Responsive Compact Version (non-featured)
   return (
-    <div className="card group cursor-pointer flex" onClick={handleClick}>
+    <div
+      className="card group cursor-pointer flex flex-col sm:flex-row w-full max-w-sm sm:max-w-md md:max-w-lg"
+      onClick={handleClick}
+    >
       <img
         src={image}
         alt={title}
-        className="w-24 h-24 object-cover flex-shrink-0"
+        className="w-full sm:w-28 h-48 sm:h-28 object-cover flex-shrink-0 rounded-t sm:rounded-l sm:rounded-t-none"
       />
-      <div className="p-4 flex-1">
-        <h3 className="font-semibold text-gray-900 mb-1 line-clamp-1">{title}</h3>
-        <p className="text-gray-600 text-sm line-clamp-2">{getShortDescription()}</p>
+      <div className="p-4 flex flex-col justify-between flex-1">
+        <div>
+          <h3 className="font-semibold text-gray-900 mb-1 text-base sm:text-lg line-clamp-1">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm sm:text-base line-clamp-2">
+            {getShortDescription()}
+          </p>
+        </div>
       </div>
     </div>
   );
