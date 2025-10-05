@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { SearchResults } from './pages/SearchResults';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { NotFound } from './pages/NotFound';
+import { Recipes } from './pages/Recipes'; // 👈 Added import
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path="/recipes" element={
           <>
             <Header />
-            <SearchResults />
+            <Recipes /> {/* 👈 Replaced SearchResults with Recipes */}
             <Footer />
           </>
         } />

@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { SearchBar } from '../components/SearchBar';
-import { RecipeGrid } from '../components/RecipeGrid';
-import { FilterSidebar } from '../components/FilterSidebar';
-import { LoadingIndicator } from '../components/LoadingIndicator';
-import { ErrorAlert } from '../components/ErrorAlert';
-import { themealdbApi } from '../utils/themealdbApi';
+import { SearchBar } from '../components/SearchBar.jsx';
+import { RecipeGrid } from '../components/RecipeGrid.jsx';
+import { FilterSidebar } from '../components/FilterSidebar.jsx';
+import { LoadingIndicator } from '../components/LoadingIndicator.jsx';
+import { ErrorAlert } from '../components/ErrorAlert.jsx';
+import { themealdbApi } from '../utils/themealdbApi.js';
 
 export function SearchResults() {
   const [searchParams] = useSearchParams();

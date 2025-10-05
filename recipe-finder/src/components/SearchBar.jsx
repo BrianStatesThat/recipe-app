@@ -38,14 +38,14 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
         <form onSubmit={handleSubmit} className="relative">
           <div className="flex gap-2">
             <div className="flex-1 relative">
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search recipes by ingredient or keyword"
-                className="input-field py-4 text-lg"
-                disabled={isLoading}
-              />
+             <input
+             type="text"
+             value={query}
+             onChange={(e) => setQuery(e.target.value)}
+             placeholder="Search recipes by ingredient or keyword"
+             className="pl-10 input-field w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl px-4 py-3 text-base sm:text-lg md:text-xl rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
+             disabled={isLoading}
+/>
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <svg className="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { themealdbApi } from '../utils/themealdbApi';
-import { LoadingIndicator } from '../components/LoadingIndicator';
-import { ErrorAlert } from '../components/ErrorAlert';
+import { useParams, useNavigate } from 'react-router-dom';
+import { themealdbApi } from '../utils/themealdbApi.js';
+import { LoadingIndicator } from '../components/LoadingIndicator.jsx';
+import { ErrorAlert } from '../components/ErrorAlert.jsx';
+import { Header } from '../components/Layout/Header.jsx'; // ✅ Using the shared Header
 
 export function RecipeDetail() {
   const { id } = useParams();
@@ -54,30 +55,6 @@ export function RecipeDetail() {
       </div>
     );
   }
-
-  const Header = () => (
-    <header className="border-b border-gray-200">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button onClick={() => navigate(-1)} className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-            </button>
-            <Link to="/recipes" className="text-gray-600 hover:text-primary-500 transition-colors">
-              Recipes
-            </Link>
-          </div>
-          <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-  );
 
   return (
     <div className="min-h-screen bg-white">

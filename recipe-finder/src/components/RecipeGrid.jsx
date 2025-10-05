@@ -1,4 +1,4 @@
-import { RecipeCard } from './RecipeCard';
+import { RecipeCard } from './RecipeCard.jsx';
 
 export function RecipeGrid({ recipes, onRecipeSelect, featured = false, title }) {
   if (!recipes || recipes.length === 0) {

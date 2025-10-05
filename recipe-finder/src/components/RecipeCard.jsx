@@ -5,8 +5,15 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
     image,
     category,
     area,
-    ingredients
+    ingredients = [] // fallback to empty array
   } = recipe;
+
+  // Utility: Format ingredients preview
+  const getIngredientPreview = (count) => {
+    const preview = ingredients.slice(0, count).map(item => item.ingredient).join(', ');
+    const needsEllipsis = ingredients.length > count;
+    return needsEllipsis ? `${preview}...` : preview;
+  };
 
   if (featured) {
     return (
@@ -29,7 +36,7 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
         <div className="p-6">
           <h3 className="font-semibold text-gray-900 text-lg mb-2 line-clamp-2">{title}</h3>
           <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-            {ingredients.slice(0, 3).map(item => item.ingredient).join(', ')}...
+            {getIngredientPreview(3)}
           </p>
           <button 
             onClick={() => onSelect(id)}
@@ -53,7 +60,7 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
         <div className="p-4 flex-1">
           <h3 className="font-semibold text-gray-900 mb-1 line-clamp-1">{title}</h3>
           <p className="text-gray-600 text-sm line-clamp-2">
-            {ingredients.slice(0, 2).map(item => item.ingredient).join(', ')}...
+            {getIngredientPreview(2)}
           </p>
         </div>
       </div>

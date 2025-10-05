@@ -2,37 +2,33 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { RecipeGrid } from '../components/RecipeGrid.jsx';
-import { LoadingIndicator } from '../components/LoadingIndicator.jsx'; // 👈 Import it
+import { LoadingIndicator } from '../components/LoadingIndicator.jsx';
 import { themealdbApi } from '../utils/themealdbApi.js';
 
-export function Home() {
-  const [featuredRecipes, setFeaturedRecipes] = useState([]);
+export function Recipes() {
+  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    loadFeaturedRecipes();
+    loadAllRecipes();
   }, []);
 
-  const loadFeaturedRecipes = async () => {
+  const loadAllRecipes = async () => {
     try {
       setLoading(true);
       const categories = ['Chicken', 'Dessert', 'Vegetarian', 'Pasta', 'Beef', 'Seafood'];
       const allRecipes = [];
 
-      for (const category of categories.slice(0, 6)) {
-        const recipes = await themealdbApi.getRecipesByCategory(category);
-        if (recipes.length > 0) {
-          allRecipes.push(recipes[0]);
-        }
+      for (const category of categories) {
+        const categoryRecipes = await themealdbApi.getRecipesByCategory(category);
+        allRecipes.push(...categoryRecipes.slice(0, 2)); // Load top 2 per category
       }
 
-      setFeaturedRecipes(
-        allRecipes.length === 0 ? themealdbApi.getDemoRecipes() : allRecipes
-      );
+      setRecipes(allRecipes.length > 0 ? allRecipes : themealdbApi.getDemoRecipes());
     } catch (error) {
-      console.error('Error loading featured recipes:', error);
-      setFeaturedRecipes(themealdbApi.getDemoRecipes());
+      console.error('Error loading recipes:', error);
+      setRecipes(themealdbApi.getDemoRecipes());
     } finally {
       setLoading(false);
     }
@@ -50,24 +46,23 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+      {/* Search Bar */}
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <SearchBar onSearch={handleSearch} isLoading={loading} large={true} />
         </div>
       </section>
 
-      {/* Featured Recipes */}
+      {/* All Recipes */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           {loading ? (
             <LoadingIndicator />
           ) : (
             <RecipeGrid
-              recipes={featuredRecipes}
+              recipes={recipes}
               onRecipeSelect={handleRecipeSelect}
-              featured={true}
-              title="Featured Recipes"
+              title="All Recipes"
             />
           )}
         </div>

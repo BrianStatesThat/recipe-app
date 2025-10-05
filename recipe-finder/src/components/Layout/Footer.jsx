@@ -34,7 +34,7 @@ export function Footer() {
           
           <div>
             <p className="text-sm text-gray-600">
-              © 2024 Recipe Finder. All rights reserved.
+              © 2025 Recipe Finder. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 mt-2">
               Made with ❤️
