@@ -129,7 +129,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ---
 ## Designs
 
-* https://www.figma.com/board/0ejGuYVhcNxZJhqxvTI5KC/Recipe-FInder-App-Brian-Speelman?node-id=0-1&t=UVLceG20K2yKbgCx-1 
+* Link to designs: https://www.figma.com/board/0ejGuYVhcNxZJhqxvTI5KC/Recipe-FInder-App-Brian-Speelman?node-id=0-1&t=UVLceG20K2yKbgCx-1
+
+---
 
 ## Acknowledgments
 
