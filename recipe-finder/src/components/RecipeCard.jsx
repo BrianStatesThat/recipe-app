@@ -2,31 +2,31 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
   const {
     idMeal,
     id = idMeal,
-    title = recipe.strMeal,
-    image = recipe.strMealThumb,
-    strInstructions,
-    ingredients = []
+    title = recipe.title || recipe.strMeal,
+    image = recipe.image || recipe.strMealThumb,
+    ingredients = recipe.ingredients || Object.keys(recipe)
+      .filter(key => key.startsWith('strIngredient') && recipe[key]?.trim())
+      .map(key => ({ ingredient: recipe[key].trim() }))
   } = recipe;
 
-  const getShortDescription = () => {
-    if (typeof strInstructions === 'string' && strInstructions.trim()) {
-      return strInstructions.length > 100
-        ? strInstructions.slice(0, 100).trim() + '...'
-        : strInstructions;
-    }
-    const preview = ingredients.slice(0, 3).map(item => item.ingredient).join(', ');
-    return ingredients.length > 3 ? preview + '...' : preview;
-  };
+const getShortDescription = () => {
+  const text = recipe.strInstructions?.trim();
+  return text
+    ? text.length > 100
+      ? text.slice(0, 100) + '...'
+      : text
+    : 'This recipe has no description available, but you can view the full details by clicking on it.';
+};
 
   const handleClick = () => onSelect(id);
 
   if (featured) {
     return (
       <div
-        className="card group cursor-pointer flex flex-col h-full"
+        className="bg-gray-200 rounded-xl card group cursor-pointer flex flex-col h-full"
         onClick={handleClick}
       >
-        <div className="relative overflow-hidden">
+        <div className="rounded-t-xl relative overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -34,10 +34,10 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
           />
           <div className="absolute top-3 right-3">
             <button
-              className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+              className="p-2 bg-[#FF5C00]/90 text-white backdrop-blur-sm rounded-full hover:bg-[#FF5C00]/50 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
-              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
@@ -54,7 +54,7 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
               e.stopPropagation();
               handleClick();
             }}
-            className="btn-outline w-full text-center mt-auto"
+            className="bg-[#FF5C00]/90 text-white rounded-2xl p-2 btn-outline w-full text-center mt-auto"
           >
             View Recipe
           </button>
@@ -66,7 +66,7 @@ export function RecipeCard({ recipe, onSelect, featured = false }) {
   // Responsive Compact Version (non-featured)
   return (
     <div
-      className="card group cursor-pointer flex flex-col sm:flex-row w-full max-w-sm sm:max-w-md md:max-w-lg"
+      className="bg-gray-200 rounded-xl card group cursor-pointer flex flex-col sm:flex-row w-full max-w-sm sm:max-w-md md:max-w-lg"
       onClick={handleClick}
     >
       <img

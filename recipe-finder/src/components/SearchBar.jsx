@@ -36,14 +36,14 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
         </div>
 
         <form onSubmit={handleSubmit} className="relative">
-          <div className="flex gap-2">
+          <div className="flex gap-0">
             <div className="flex-1 relative">
              <input
              type="text"
              value={query}
              onChange={(e) => setQuery(e.target.value)}
              placeholder="Search recipes by ingredient or keyword"
-             className="pl-10 input-field w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl px-4 py-3 text-base sm:text-lg md:text-xl rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
+             className="rounded-l-full rounded-bl-full pl-10 input-field w-full max-w-lg sm:max-w-lg md:max-w-xl lg:max-w-2xl px-4 py-3 text-base sm:text-lg md:text-xl rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
              disabled={isLoading}
 />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -55,9 +55,9 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
             <button
               type="submit"
               disabled={isLoading || !query.trim()}
-              className="btn-primary px-8 text-lg"
+              className=" bg-[#FF5C00]/90 text-white rounded-r-full rounded-br-full md:w-52  btn-primary px-8 text-lg"
             >
-              {isLoading ? 'Searching...' : 'Search'}
+              {isLoading ? 'Searching...' : 'Search'} 
             </button>
           </div>
         </form>
@@ -70,7 +70,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
                 key={suggestion}
                 type="button"
                 onClick={() => navigate(`/search?q=${encodeURIComponent(suggestion)}`)}
-                className="px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm hover:bg-primary-100 transition-colors border border-primary-200"
+                className="px-4 py-2 bg-[#FF5C00] text-white rounded-full text-sm hover:bg-primary-100 transition-colors border border-primary-200"
               >
                 {suggestion}
               </button>
@@ -98,7 +98,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
           <button
             type="submit"
             disabled={isLoading || !query.trim()}
-            className="btn-primary whitespace-nowrap"
+            className=" bg-[#FF5C00]/90 text-white rounded-r-full rounded-br-full btn-primary whitespace-nowrap"
           >
             {isLoading ? '...' : 'Search'}
           </button>
