@@ -18,9 +18,9 @@ function App() {
           <>
             <Header />
             <Home />
-            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
-              <LiquidButton />
-            </div>
+            <Link to="#" className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton  />
+            </Link>
             <Footer />
           </>
         } />
