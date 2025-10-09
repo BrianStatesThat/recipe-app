@@ -34,7 +34,7 @@ const getShortDescription = () => {
           />
           <div className="absolute top-3 right-3">
             <button
-              className="p-2 bg-[#FF5C00]/90 text-white backdrop-blur-sm rounded-full hover:bg-[#FF5C00]/50 transition-colors"
+              className="p-2 bg-gray-600 text-white backdrop-blur-sm rounded-full hover:bg-[#FF5C00]/50 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
