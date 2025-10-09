@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Header } from './components/Layout/Header';
 import { Footer } from './components/Layout/Footer';
 import { Home } from './pages/Home';
@@ -29,9 +29,9 @@ function App() {
           <>
             <Header />
             <SearchResults />
-            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
-              <LiquidButton />
-            </div>
+            <Link to="#" className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton  />
+            </Link>
             <Footer />
           </>
         } />
@@ -48,15 +48,22 @@ function App() {
           <>
             <Header />
             <Recipes />
-            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
-              <LiquidButton />
-            </div>
+            <Link to="#" className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton  />
+            </Link>
             <Footer />
           </>
         } />
         
         {/* Recipe detail page has custom header */}
-        <Route path="/recipe/:id" element={<RecipeDetail />} />
+        <Route path="/recipe/:id" element={
+          <> 
+          <RecipeDetail />
+          <Link to="#" className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton  />
+            </Link>
+          </>
+      } />
         
         {/* 404 page */}
         <Route path="*" element={
