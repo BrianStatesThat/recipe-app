@@ -47,9 +47,9 @@ export function Recipes() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Search Bar */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-4">
         <div className="container mx-auto px-4">
-          <SearchBar onSearch={handleSearch} isLoading={loading} large={true} />
+          <SearchBar onSearch={handleSearch} isLoading={loading} />
         </div>
       </section>
 
