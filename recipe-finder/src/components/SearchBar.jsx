@@ -70,7 +70,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
                 key={suggestion}
                 type="button"
                 onClick={() => navigate(`/search?q=${encodeURIComponent(suggestion)}`)}
-                className="inline-block px-4 py-2 bg-[#FF5C00] text-white rounded-full text-sm hover:bg-primary-100 transition-colors border border-primary-200 mr-2"
+                className="mx-auto items-center justify-center mb-2 inline-block px-4 py-2 bg-[#FF5C00] text-white rounded-full text-sm hover:bg-primary-100 transition-colors border border-primary-200 mr-2"
               >
                 {suggestion}
               </button>
@@ -91,7 +91,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search recipes by ingredient"
-              className="input-field w-full px-4 py-2 rounded-l-full rounded-bl-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
+              className="text-gray-700 input-field w-full px-4 py-2 rounded-l-full rounded-bl-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
               disabled={isLoading}
             />
           </div>
