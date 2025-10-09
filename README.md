@@ -138,6 +138,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 * **TheMealDB** for providing the recipe data API
 * **React community** for excellent documentation and resources
 * **Tailwind CSS** for the utility-first CSS framework
+* Liquid Glass React Component - Used as Layout Component - installed using npm install @developer-hub/liquid-glass
 ---
 
 ## Project Structure
