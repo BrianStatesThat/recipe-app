@@ -5,8 +5,9 @@ import { Home } from './pages/Home';
 import { SearchResults } from './pages/SearchResults';
 import { RecipeDetail } from './pages/RecipeDetail';
 import { NotFound } from './pages/NotFound';
-import { Recipes } from './pages/Recipes'; // 👈 Added import
+import { Recipes } from './pages/Recipes';
 import { About } from './pages/About';
+import LiquidButton from './components/Layout/LiquidButton';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
           <>
             <Header />
             <Home />
+            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton />
+            </div>
             <Footer />
           </>
         } />
@@ -25,6 +29,9 @@ function App() {
           <>
             <Header />
             <SearchResults />
+            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton />
+            </div>
             <Footer />
           </>
         } />
@@ -40,7 +47,10 @@ function App() {
         <Route path="/recipes" element={
           <>
             <Header />
-            <Recipes /> {/* 👈 Replaced SearchResults with Recipes */}
+            <Recipes />
+            <div className="rounded-full fixed bottom-[20px] right-[20px] md:right-[80px] z-80">
+              <LiquidButton />
+            </div>
             <Footer />
           </>
         } />
