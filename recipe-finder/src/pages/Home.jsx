@@ -17,7 +17,7 @@ export function Home() {
   const loadFeaturedRecipes = async () => {
     try {
       setLoading(true);
-      const categories = ['Chicken', 'Dessert', 'Vegetarian', 'Pasta', 'Beef', 'Seafood'];
+      const categories = ['Chicken', 'Dessert', 'Vegetarian', 'Pasta', 'Beef', 'Seafood', 'Breakfast', 'Soup'];
       const allRecipes = [];
 
       for (const category of categories.slice(0, 6)) {

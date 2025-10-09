@@ -54,7 +54,7 @@ export function SearchResults() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         {/* Search Header */}
-        <div className="mb-8">
+        <div className="container mx-auto px-4 mb-8">
           <SearchBar onSearch={handleSearch} isLoading={loading} initialValue={query} />
         </div>
 
@@ -91,7 +91,7 @@ export function SearchResults() {
                 {/* Load More Button */}
                 {recipes.length > 0 && (
                   <div className="text-center mt-8">
-                    <button className="btn-outline px-8">
+                    <button className="bg-[#FF5C00]/90 text-white  rounded-full btn-outline py-2 px-8">
                       Load More Recipes
                     </button>
                   </div>

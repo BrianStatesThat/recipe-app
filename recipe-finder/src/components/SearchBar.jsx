@@ -21,7 +21,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
     }
   };
 
-  const searchSuggestions = ['Pasta', 'Chicken', 'Chocolate', 'Salad', 'Cake', 'Beef', 'Fish'];
+  const searchSuggestions = ['Pasta', 'Chicken', 'Chocolate', 'Salad', 'Cake', 'Beef', 'Fish', 'Soup'];
 
   if (large) {
     return (
@@ -63,7 +63,7 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
         </form>
 
         <div className="mt-6">
-          <p className="text-sm text-gray-600 mb-3 text-center">Try searching for:</p>
+          <p className="text-sm text-gray-600 mb-3 text-center">Try the following:</p>
           <div className="flex flex-wrap gap-2 justify-center">
             {searchSuggestions.map((suggestion) => (
               <button
@@ -91,14 +91,14 @@ export function SearchBar({ onSearch, isLoading, large = false, initialValue = '
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search recipes by ingredient"
-              className="input-field"
+              className="input-field w-full px-4 py-2 rounded-l-full rounded-bl-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200"
               disabled={isLoading}
             />
           </div>
           <button
             type="submit"
             disabled={isLoading || !query.trim()}
-            className=" bg-[#FF5C00]/90 text-white rounded-r-full rounded-br-full btn-primary whitespace-nowrap"
+            className="bg-[#FF5C00]/90 text-white rounded-r-full rounded-br-full w-28 btn-primary whitespace-nowrap"
           >
             {isLoading ? '...' : 'Search'}
           </button>
