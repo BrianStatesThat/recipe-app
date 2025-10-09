@@ -8,9 +8,9 @@ function LiquidButton() {
       blurAmount={0.01}
      cornerRadius={100}
       padding="15px 15px"
-      className='select-none rounded-full'
+      className='select-none rounded-full w-20 h-20'
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-    <span className="text-white text-4xl font-extrabold w-16 h-16 rounded-full select-none">↑</span>
+    <span className="text-white text-4xl font-extrabold  rounded-full select-none">↑</span>
     </GlassCard>
   )
 }
