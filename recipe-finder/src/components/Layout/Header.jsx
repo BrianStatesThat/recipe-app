@@ -14,16 +14,25 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary-500 rounded-lg"></div>
-            <span className="text-xl font-bold text-white">Recipe Finder</span>
+            <div className="w-8 h-8 bg-primary-500 rounded-lg">
+            </div>
+            <span className="text-2xl font-extrabold text-white">Recipe Finder</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="rounded-full my-2 text-[#eb5C00]/90 bg-white hidden md:flex items-center gap-8 py-2 px-8">
+          <nav className="rounded-full my-2 text-[#eb5C00]/90 bg-white/90 shadow-2xl  hidden md:flex md:items-center gap-8 py-2 px-8">
             <Link to="/" className={`font-medium transition-colors ${isActive('/')}`}>Home</Link>
             <Link to="/recipes" className={`font-medium transition-colors ${isActive('/recipes')}`}>Recipes</Link>
             <Link to="/about" className={`font-medium transition-colors ${isActive('/about')}`}>About</Link>
           </nav>
+          <div className="hidden md:flex md:items-center md:gap-8 py-2 px-8">
+            <div className="text-white text-sm">
+            </div>
+            <div className="text-white text-sm">
+            </div>
+            <div className="text-white text-sm">
+            </div>
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -43,7 +52,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <nav className="rounded-xl mb-4 text-[#eb5C00]/90 bg-white text-center md:hidden flex flex-col gap-4 py-4">
+          <nav className="rounded-xl mb-4 text-[#eb5C00]/90 bg-white/90 text-center md:hidden flex flex-col gap-4 py-4">
             <Link to="/" className={`font-medium px-4  ${isActive('/')}`} onClick={() => setMenuOpen(false)}>Home</Link>
             <hr />
             <Link to="/recipes" className={`font-medium  px-4 ${isActive('/recipes')}`} onClick={() => setMenuOpen(false)}>Recipes</Link>
