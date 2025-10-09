@@ -25,7 +25,7 @@ export function Header() {
             <Link to="/recipes" className={`font-medium transition-colors ${isActive('/recipes')}`}>Recipes</Link>
             <Link to="/about" className={`font-medium transition-colors ${isActive('/about')}`}>About</Link>
           </nav>
-          <div className="hidden md:flex md:items-center md:gap-8 py-2 px-8">
+          <div className="hidden md:flex md:flex-row md:items-center md:gap-8 py-2 px-8">
             <div className="text-white text-sm">
             </div>
             <div className="text-white text-sm">
