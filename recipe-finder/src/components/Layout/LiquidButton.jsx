@@ -9,7 +9,7 @@ function LiquidButton() {
      cornerRadius={100}
       padding="18px 18px"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-    <span className="text-white font-medium w-24 h-24 rounded-full">TOP</span>
+    <span className="text-white font-medium w-24 h-24 rounded-full select-none">TOP</span>
     </GlassCard>
   )
 }
