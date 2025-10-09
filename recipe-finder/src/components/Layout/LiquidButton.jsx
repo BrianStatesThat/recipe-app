@@ -7,7 +7,7 @@ function LiquidButton() {
       displacementScale={100}
       blurAmount={0.01}
      cornerRadius={100}
-      padding="9px 21px"
+      padding="12px 21px"
       className='select-none'
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
     <span className="text-white text-4xl font-extrabold w-24 h-24 rounded-full select-none">↑</span>
