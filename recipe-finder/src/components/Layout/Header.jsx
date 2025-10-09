@@ -43,7 +43,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <nav className="rounded-xl mb-4 bg-[#eb5C00]/90 text-white text-center md:hidden flex flex-col gap-4 py-4">
+          <nav className="rounded-xl mb-4 text-[#eb5C00]/90 bg-white text-center md:hidden flex flex-col gap-4 py-4">
             <Link to="/" className={`font-medium px-4 ${isActive('/')}`} onClick={() => setMenuOpen(false)}>Home</Link>
             <hr />
             <Link to="/recipes" className={`font-medium px-4 ${isActive('/recipes')}`} onClick={() => setMenuOpen(false)}>Recipes</Link>
