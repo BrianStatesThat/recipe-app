@@ -9,14 +9,14 @@ export function Header() {
     location.pathname === path ? 'text-gray-600' : 'text-[#FF5C00]/90 hover:text-gray-500';
 
   return (
-    <header className="bg-[#FF5C00]/90 border-b border-gray-200 sticky top-0 z-40">
-      <div className="container  text-white  mx-auto px-4">
+    <header className=" bg-white/30 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
+      <div className="container backdrop-blur-md text-white  mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary-500 rounded-lg">
             </div>
-            <span className="text-2xl font-extrabold text-white">Recipe Finder</span>
+            <span className="text-2xl font-extrabold text-[#eb5C00]/90">Recipe Finder</span>
           </Link>
 
           {/* Desktop Navigation */}
