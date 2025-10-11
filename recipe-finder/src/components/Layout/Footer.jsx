@@ -8,7 +8,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-primary-500 rounded-lg"></div>
-              <span className="font-sans text-2xl sm:text-2xl font-extrabold sm:font-bold text-white">Recipe Finder</span>
+              <span className="font-sans text-2xl sm:text-2xl font-extrabold sm:font-extrabold text-white">Recipe Finder</span>
             </div>
             <p className="text-white text-sm">
               Easily search for recipes by ingredient or keyword.
