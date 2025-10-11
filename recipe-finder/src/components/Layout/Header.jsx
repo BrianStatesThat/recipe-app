@@ -6,7 +6,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (path) =>
-    location.pathname === path ? 'text-gray-400' : 'text-white hover:text-gray-500';
+    location.pathname === path ? 'text-gray-400' : 'text-[#eb5C00]/90 hover:text-gray-500';
 
   return (
     <header className=" bg-white/30 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
