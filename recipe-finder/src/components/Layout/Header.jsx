@@ -6,7 +6,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (path) =>
-    location.pathname === path ? 'text-gray-600' : 'text-[#FF5C00]/90 hover:text-gray-500';
+    location.pathname === path ? 'text-gray-400' : 'text-white hover:text-gray-500';
 
   return (
     <header className=" bg-white/30 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
@@ -52,7 +52,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <nav className="rounded-xl mb-4 text-[#eb5C00]/90 bg-white/90 text-center md:hidden flex flex-col gap-4 py-4">
+          <nav className="rounded-xl mb-4 bg-[#eb5C00]/90 text-white/90 text-center md:hidden flex flex-col gap-4 py-4">
             <Link to="/" className={`font-medium px-4  ${isActive('/')}`} onClick={() => setMenuOpen(false)}>Home</Link>
             <hr />
             <Link to="/recipes" className={`font-medium  px-4 ${isActive('/recipes')}`} onClick={() => setMenuOpen(false)}>Recipes</Link>
