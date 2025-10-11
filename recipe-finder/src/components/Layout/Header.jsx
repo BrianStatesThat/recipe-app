@@ -16,7 +16,7 @@ export function Header() {
           <Link to="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary-500 rounded-lg">
             </div>
-            <span className="text-2xl font-extrabold text-[#eb5C00]/90">Recipe Finder</span>
+            <span className="text-2xl sm:text-2xl font-extrabold sm:font-extrabold text-[#eb5C00]/90">Recipe Finder</span>
           </Link>
 
           {/* Desktop Navigation */}
